@@ -1,0 +1,41 @@
+﻿@model List<RoleAssignVM>
+@{
+    ViewData["Title"] = "Kullanıcı Rol Güncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-6 mx-auto">
+    <form method="post" asp-area="" asp-controller="AccountRole" asp-action="UserRoleUpdate">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        Role
+                    </th>
+                </tr>
+            </thead>
+            @if (Model.Count > 0)
+            {
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+
+                        <tr>
+                            <td>
+                                <input type="checkbox" asp-for="@Model[i].HasAssign" />
+                            <td>
+                                <label asp-for="@Model[i].HasAssign">@Model[i].Name</label>
+                                <input type="hidden" asp-for="@Model[i].ID" />
+                                <input type="hidden" asp-for="@Model[i].Name" />
+                            </td>
+                        </tr>
+                    }
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit" class="btn btn-primary">Add Role</button>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </form>
+</div>

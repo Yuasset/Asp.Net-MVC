@@ -1,0 +1,17 @@
+﻿@model AccountLoginVM
+@{
+    ViewData["Title"] = "Giriş";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-6 mx-auto">
+    <form asp-controller="Account" asp-action="Login" method="post">
+        <div asp-validation-summary="All"><!--Hata Mesajlarının gösterileceği alan--></div>
+        <label asp-for="Email"></label>
+        <input type="email" class="form-control" asp-for="Email" required="" />
+        <label asp-for="Password"></label>
+        <input type="password" class="form-control" asp-for="Password" required="" />
+        <input type="checkbox" asp-for=RememberMe />
+        <label asp-for="RememberMe"></label>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>

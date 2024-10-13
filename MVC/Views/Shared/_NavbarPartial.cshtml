@@ -1,0 +1,65 @@
+﻿<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LOGO</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Rol Yönetim</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-item" asp-area="" asp-controller="AccountRole" asp-action="Index">Roller</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-item" asp-area="" asp-controller="AccountRole" asp-action="Create">Rol Oluştur</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-item" asp-area="" asp-controller="AccountRole" asp-action="UserRole">Kullanıcı Rolleri</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-item" asp-area="" asp-controller="AccountRole" asp-action="UserRoleAdd">Kullanıcı Rol Ekle</a>
+                        </li>
+                    </ul>
+                </li>
+                @if (@User.IsInRole("Admin"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="" asp-action="">ADMİN OLAN GÖREBİLİR</a>
+                    </li>
+                }
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Dashboard" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="" asp-action="">@User.Identity.Name</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">Çıkış</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Giriş</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Register">Kayıt</a>
+                    </li>
+                }
+            </ul>
+                <a asp-area="" asp-controller="Home" asp-action="Card">
+                    <button class="btn btn-outline-dark">
+                        <i class="bi-cart-fill me-1"></i>
+                        <label>Sepet</label>
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
+                </a>
+        </div>
+    </div>
+</nav>

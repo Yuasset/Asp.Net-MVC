@@ -1,0 +1,64 @@
+﻿@model List<UserRoleVM>
+@{
+    ViewData["Title"] = "Kullanıcı Rolleri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-6 mx-auto">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Process</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count > 0)
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.User.Id</td>
+                        <td>@item.User.UserName</td>
+                        <td>@item.User.Email</td>
+                        <td>
+                            @if (item.UserRoles.Count > 0)
+                            {
+                                @foreach (var role in item.UserRoles)
+                                {
+                                    @if (role.Name == "Admin")
+                                    {
+                                        <span class="badge bg-danger">@role.Name</span>
+                                    }
+                                    else if (role.Name == "member")
+                                    {
+                                        <span class="badge bg-secondary">@role.Name</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-primary">@role.Name</span>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                <span>Tanımsız</span>
+                            }
+                        </td>
+                        <td>
+                            <a class="btn btn-warning sm" asp-area="" asp-controller="AccountRole" asp-action="UserRoleUpdate" asp-route-id="@item.User.Id">Update Role</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5">Sisteme kayıtlı kullanıcı bulunmamaktadır</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

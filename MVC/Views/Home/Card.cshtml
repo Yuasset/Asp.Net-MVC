@@ -1,0 +1,65 @@
+﻿@model CardSession
+@{
+    ViewData["Title"] = "Sepet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    decimal? totalPrice = 0;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Sepetim</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover align-content-center">
+                        <thead>
+                            <tr>
+                                <th>Ürün Adı</th>
+                                <th>Birim Fiyat</th>
+                                <th>Adet</th>
+                                <th>Ara Toplam</th>
+                                <th>Güncelle</th>
+                                <th>Kaldır</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Card)
+                            {
+                                totalPrice += item.Value.SubTotal;
+                                <tr>
+                                    <td>@item.Value.Product.Name </td>
+                                    <td>@item.Value.Product.Price</td>
+                                    <td>
+                                        <form asp-action="UpdateCard" asp-controller="Home" asp-route-id="@item.Value.Product.ID" method="post">
+                                            <input type="number" class="form-control" name="quantity" value="@item.Value.Quantity" />
+                                            <button type="submit" class="btn btn-warning">Güncelle</button>
+                                        </form>
+                                    </td>
+                                    <td>@item.Value.SubTotal</td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger">Kaldır</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Sepet Özet</h5>
+                    <hr />
+                    <p class="h3">Toplam Tutar: @totalPrice TL </p>
+                    <a class="btn btn-success mt-2">Satın Al</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
