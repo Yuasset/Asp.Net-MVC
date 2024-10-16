@@ -1,11 +1,12 @@
 Identity, EntityFramework, Newtonsoft.Json kütüphaneleri kullanıldı.
 # Projede işlenilen konular:
+MVC,
 Appsetings.json database conectionStrings,
 Dependency Injection AddScoped(),
-User Manager, Role Manager, SignInManager,
+Authentication ve Authorization (User Manager, Role Manager, SignIn Manager)
+Middleware,
 Dizayn Pattern(Repository, Services),
 CodeFirst Database migration,
-Repostory and Service Pattern,
 Areas,
 Bootstrap,
 ViewModel,
