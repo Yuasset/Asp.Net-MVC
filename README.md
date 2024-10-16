@@ -15,7 +15,7 @@ Session,
 # Hazırlanan sayfalar:
 Kullanıcı Rol Yönetimi, Rol Güncelleme, Rol Oluştur ve Listeleme,
 Giriş ve Kayıt,
-Dashboard
+Dashboard,
 Ürün Listeme,
 Sepet ve Güncelleme
 
