@@ -5,7 +5,7 @@ Appsetings.json database conectionStrings,
 Dependency Injection AddScoped(),
 Authentication ve Authorization (User Manager, Role Manager, SignIn Manager)
 Middleware,
-Dizayn Pattern(Repository, Services),
+Design Pattern(Repository, Services),
 CodeFirst Database migration,
 Areas,
 Bootstrap,
