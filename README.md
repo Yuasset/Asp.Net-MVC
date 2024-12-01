@@ -1,3 +1,6 @@
+# Açıklama
+MSSQL Tabanlı Ürünleri listeleyen, sepete ekleyen ve admin dashboard ekranı olan bunu kullanıcı yetkilendirmesi ve girişi ile sınırlayan proje hazırladım.
+
 Identity, EntityFramework, Newtonsoft.Json kütüphaneleri kullanıldı.
 # Projede işlenilen konular:
 MVC,
